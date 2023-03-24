@@ -1,4 +1,4 @@
-package it.unibo.cinema.api;
+package it.unibo.samplejavafx.api;
 
 public interface Film {
     int getId();
@@ -10,5 +10,5 @@ public interface Film {
     int getYear();
     String getCover();
 
-    void deleteFilm(int id);
+    void deleteFilm();
 }

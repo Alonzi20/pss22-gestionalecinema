@@ -1,4 +1,4 @@
-package it.unibo.cinema.api;
+package it.unibo.samplejavafx.api;
 
 public interface Client {
     int getId();
@@ -11,5 +11,5 @@ public interface Client {
     void setSurname(String surname);
     void setEmail(String email);
 
-    void deleteClient(int id);
+    void deleteClient();
 }

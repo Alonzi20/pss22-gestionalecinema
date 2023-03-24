@@ -1,9 +1,9 @@
-package it.unibo.cinema.api;
+package it.unibo.samplejavafx.api;
 
 public interface Screening {
     int getId();
     String getDate();
     String getHour();
 
-    void deleteScreening(int id);
+    void deleteScreening();
 }

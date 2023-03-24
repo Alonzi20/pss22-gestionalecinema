@@ -1,4 +1,4 @@
-package it.unibo.cinema.api;
+package it.unibo.samplejavafx.api;
 
 public interface MovieTheater {
     int getNumber();
