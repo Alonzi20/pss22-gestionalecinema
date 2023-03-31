@@ -1,6 +1,6 @@
 package it.unibo.samplejavafx.api;
 
-public interface Actor {
+public interface ActorInterface {
     String getName();
     String getSurname();
 }

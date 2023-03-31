@@ -1,6 +1,6 @@
 package it.unibo.samplejavafx.api;
 
-public interface Film {
+public interface FilmInterface {
     int getId();
     String getTitle();
     String getDirector();

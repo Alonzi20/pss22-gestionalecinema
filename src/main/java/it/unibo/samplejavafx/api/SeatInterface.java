@@ -1,6 +1,6 @@
 package it.unibo.samplejavafx.api;
 
-public interface Seat {
+public interface SeatInterface {
     int getNumber();
     char getLine();
     

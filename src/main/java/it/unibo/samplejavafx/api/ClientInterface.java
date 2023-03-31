@@ -1,6 +1,6 @@
 package it.unibo.samplejavafx.api;
 
-public interface Client {
+public interface ClientInterface {
     int getId();
     String getName();
     String getSurname();

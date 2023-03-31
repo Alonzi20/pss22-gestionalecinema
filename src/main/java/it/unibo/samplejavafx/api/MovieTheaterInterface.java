@@ -1,5 +1,5 @@
 package it.unibo.samplejavafx.api;
 
-public interface MovieTheater {
+public interface MovieTheaterInterface {
     int getNumber();
 }
