@@ -6,9 +6,12 @@ package it.unibo.samplejavafx;
 
 import javafx.application.Application;
 
+
+
 /** Main application entry-point's class. */
 
 public final class App {
+
     private App() { }
 
     /**
