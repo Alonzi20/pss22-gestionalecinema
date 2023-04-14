@@ -7,6 +7,11 @@ import it.unibo.samplejavafx.api.MovieTheaterInterface;
 import it.unibo.samplejavafx.api.ScreeningInterface;
 import it.unibo.samplejavafx.api.SeatInterface;
 import it.unibo.samplejavafx.api.TicketInterface;
+import it.unibo.samplejavafx.impl.Client;
+import it.unibo.samplejavafx.impl.MovieTheater;
+import it.unibo.samplejavafx.impl.Screening;
+import it.unibo.samplejavafx.impl.Seat;
+import it.unibo.samplejavafx.impl.Ticket;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,12 +26,11 @@ public class TestCinema {
     }
     @Test
     public void testClient(){
-        ClientInterface gino = new ClientInterface(1, "Gino", "Pino", "gino.pino@gmail.com");
-        gino.setId(2);
+        Client gino = new Client("Gino", "Pino", "gino.pino@gmail.com");
         gino.setName("Pippo");
         gino.setSurname("Franco");
         gino.setEmail("pippo.franco@gmail.com");
-        Assertions.assertEquals(2, gino.getId());
+        Assertions.assertEquals(1, gino.getId());
         Assertions.assertEquals("Pippo", gino.getName());
         Assertions.assertEquals("Franco", gino.getSurname());
         Assertions.assertEquals("pippo.franco@gmail.com", gino.getEmail());
@@ -48,12 +52,13 @@ public class TestCinema {
     }
     @Test
     public void testMovieTheater(){
-        MovieTheaterInterface sala = new MovieTheaterInterface(5);
+        MovieTheater sala = new MovieTheater(5);
         Assertions.assertEquals(5, sala.getNumber());
     }
     @Test
     public void testScreening(){
-        ScreeningInterface proiezione = new ScreeningInterface(1, "data", "ora");
+        MovieTheater sala = new MovieTheater(5);
+        Screening proiezione = new Screening("data", "ora", film, sala);
         Assertions.assertEquals(1, proiezione.getId());
         Assertions.assertEquals("data", proiezione.getDate());
         Assertions.assertEquals("ora", proiezione.getHour());
@@ -62,14 +67,20 @@ public class TestCinema {
     }
     @Test
     public void testSeat(){
-        SeatInterface posto = new SeatInterface(1, "A");
+        MovieTheater sala = new MovieTheater(5);
+        Seat posto = new Seat(1, 'A', sala);
         Assertions.assertEquals(1, posto.getNumber());
-        Assertions.assertEquals("A", posto.getLine());
+        Assertions.assertEquals('A', posto.getLine());
     }
     @Test
     public void testTicket(){
-        TicketInterface biglietto = new TicketInterface(1, 9.99);
-        Assertions.assertEquals(1, biglietto.getId());
-        Assertions.assertEquals("A", biglietto.getPrice());
+        Ticket bigliettointero = new Ticket(1, false);
+        Ticket bigliettoridotto = new Ticket(1, true);
+        Assertions.assertEquals(1, bigliettointero.getId());
+        Assertions.assertEquals(8.5, bigliettointero.getTitle());
+        Assertions.assertEquals("data", bigliettointero.getDate());
+        Assertions.assertEquals("ora", bigliettointero.getHour());
+        Assertions.assertEquals(1, bigliettointero.getMovieTheater());
+        Assertions.assertEquals(5.5, bigliettoridotto.getPrice());
     }
 }
