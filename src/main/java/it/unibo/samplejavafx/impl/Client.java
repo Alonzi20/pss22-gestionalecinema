@@ -8,6 +8,12 @@ public class Client implements ClientInterface{
     private String surname;
     private String email;
 
+    public Client(String name, String surname, String email){
+        this.name=name;
+        this.surname=surname;
+        this.email=email;
+    }
+
     @Override
     public int getId() {
         return id;
