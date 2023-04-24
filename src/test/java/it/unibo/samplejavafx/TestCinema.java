@@ -74,8 +74,10 @@ public class TestCinema {
     }
     @Test
     public void testTicket(){
-        Ticket bigliettointero = new Ticket(1, false);
-        Ticket bigliettoridotto = new Ticket(1, true);
+        MovieTheater sala = new MovieTheater(5);
+        Screening proiezione = new Screening("data", "ora", film, sala);
+        Ticket bigliettointero = new Ticket(proiezione, false);
+        Ticket bigliettoridotto = new Ticket(proiezione, true);
         Assertions.assertEquals(1, bigliettointero.getId());
         Assertions.assertEquals(8.5, bigliettointero.getTitle());
         Assertions.assertEquals("data", bigliettointero.getDate());
