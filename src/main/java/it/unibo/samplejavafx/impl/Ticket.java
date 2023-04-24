@@ -6,13 +6,15 @@ public class Ticket implements TicketInterface{
     private static final double PREZZORIDOTTO = 5.5;
     private static final double PREZZOINTERO = 8.5;
     private int id=1;
+    private boolean reduction;
     private double price;
     private Screening screening;
 
-    public Ticket(Screening screening, Boolean ridotto){
+    public Ticket(Screening screening, Boolean reduction){
         this.id=id++;   //modifica dell'id da rivedere
         this.screening=screening; 
-        if (ridotto)
+        this.reduction=reduction;
+        if (reduction)
             this.price=PREZZORIDOTTO;
         else
             this.price=PREZZOINTERO;
@@ -26,6 +28,14 @@ public class Ticket implements TicketInterface{
     @Override
     public double getPrice() {
         return price;
+    } 
+
+    @Override
+    public String getReduction() {
+        if(this.reduction)
+            return "ridotto";
+        else
+            return "intero";   
     } 
 
     public String getTitle(){
