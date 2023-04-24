@@ -8,6 +8,7 @@ import it.unibo.samplejavafx.api.ScreeningInterface;
 import it.unibo.samplejavafx.api.SeatInterface;
 import it.unibo.samplejavafx.api.TicketInterface;
 import it.unibo.samplejavafx.impl.Client;
+import it.unibo.samplejavafx.impl.Film;
 import it.unibo.samplejavafx.impl.MovieTheater;
 import it.unibo.samplejavafx.impl.Screening;
 import it.unibo.samplejavafx.impl.Seat;
@@ -75,14 +76,18 @@ public class TestCinema {
     @Test
     public void testTicket(){
         MovieTheater sala = new MovieTheater(5);
+        Film film = new Film(1, "titolo", "regista", "trama", "durata", "genere", 2010, "linkCopertina");
         Screening proiezione = new Screening("data", "ora", film, sala);
         Ticket bigliettointero = new Ticket(proiezione, false);
         Ticket bigliettoridotto = new Ticket(proiezione, true);
         Assertions.assertEquals(1, bigliettointero.getId());
-        Assertions.assertEquals(8.5, bigliettointero.getTitle());
+        Assertions.assertEquals("titolo", bigliettoridotto.getTitle());
+        Assertions.assertEquals(8.5, bigliettointero.getPrice());
         Assertions.assertEquals("data", bigliettointero.getDate());
         Assertions.assertEquals("ora", bigliettointero.getHour());
-        Assertions.assertEquals(1, bigliettointero.getMovieTheater());
+        Assertions.assertEquals(5, bigliettointero.getMovieTheater());
         Assertions.assertEquals(5.5, bigliettoridotto.getPrice());
+        Assertions.assertEquals("intero", bigliettointero.getReduction());
+        Assertions.assertEquals("ridotto", bigliettoridotto.getReduction());
     }
 }
