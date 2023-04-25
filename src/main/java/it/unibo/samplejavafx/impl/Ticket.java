@@ -38,18 +38,22 @@ public class Ticket implements TicketInterface{
             return "intero";   
     } 
 
+    @Override
     public String getTitle(){
         return screening.getFilm();
     }
 
+    @Override
     public String getDate(){
         return screening.getDate();
     }
 
+    @Override
     public String getHour(){
         return screening.getHour();
     }
 
+    @Override
     public int getMovieTheater(){
         return screening.getMovieTheater();
     }
