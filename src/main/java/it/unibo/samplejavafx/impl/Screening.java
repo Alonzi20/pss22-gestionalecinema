@@ -1,5 +1,7 @@
 package it.unibo.samplejavafx.impl;
 
+import java.util.ArrayList;
+
 import it.unibo.samplejavafx.api.ScreeningInterface;
 
 public class Screening implements ScreeningInterface{
@@ -8,6 +10,7 @@ public class Screening implements ScreeningInterface{
     private String hour;
     private Film film;
     private MovieTheater movieTheater;
+    private ArrayList<Seat> busySeats = new ArrayList<Seat>();
 
     public Screening(String date, String hour, Film film, MovieTheater movieTheater) {
         this.id=id++;
@@ -15,6 +18,7 @@ public class Screening implements ScreeningInterface{
         this.hour = hour;
         this.film = film;
         this.movieTheater = movieTheater;
+        this.busySeats = null;
     }
 
     @Override
@@ -40,6 +44,17 @@ public class Screening implements ScreeningInterface{
     @Override
     public int getMovieTheater() {
         return movieTheater.getNumber();
+    }
+
+    public boolean isEmpty(Seat checkedSeat) {
+        if (busySeats.contains(checkedSeat))
+            return false;
+        else 
+            return true;
+    }
+
+    public void updateBusySeats(Seat chosenSeat) {
+        busySeats.add(chosenSeat);
     }
 
     @Override
