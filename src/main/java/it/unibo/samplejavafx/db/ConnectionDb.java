@@ -14,7 +14,7 @@ public class ConnectionDb {
 
             // Crea lo statement per eseguire la query sul database
             try (Statement statement = connection.createStatement()) {
-                String query = "SELECT * FROM Client";
+                String query = "";
 
                 // Esegui la query e gestisci il risultato
                 try (ResultSet resultSet = statement.executeQuery(query)) {
